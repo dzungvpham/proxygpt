@@ -1,1 +1,1 @@
-# proxygpt
+# ProxyGPT
