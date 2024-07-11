@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "ProxyGPT",
+    "version": "0.1.0",
+    "description": "Become a proxy for users of ChatGPT, Claude, etc., to protect their privacy!",
+    "homepage_url": "https://github.com/dzungvpham/proxygpt",
+    "icons": {
+        "48": "icons/icon48.png",
+        "96": "icons/icon96.png"
+    },
+    "host_permissions": [
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://proxygpt.cs.umass.edu/*"
+    ],
+    "permissions": [
+        "offscreen",
+        "proxy",
+        "storage",
+        "webRequest"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+    },
+    "action": {
+        "default_icon": "icons/icon48.png",
+        "default_title": "ProxyGPT",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://chatgpt.com/*", "https://claude.ai/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "proxygpt-extension",
+  "version": "0.1.0",
+  "description": "ProxyGPT extension",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
+    "dev": "NODE_ENV=development webpack --config webpack.config.js"
+  },
+  "author": "Dzung Pham",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "html-loader": "^5.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "source-map-loader": "^5.0.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "webextension-polyfill": "^0.12.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "idb-keyval": "^6.2.1",
+    "tlsn-js": "github:dzungvpham/tlsn-js"
+  }
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <div>
+      ProxyGPT: Become a proxy for users of ChatGPT, Claude, etc., to protect their privacy!
+    </div>
+    <hr>
+    <div>
+      Status: <span id="status">Not registered</span> <span id="reset" title="Reset registration and clear storage (except for e-cash)">Reset</span>
+    </div>
+    <div>
+      Proxy ID:
+      <div><span id="pid">N/A</span></div>
+    </div>
+    <div>
+      Requests served: <span id="stats_requests">0</span>
+    </div>
+    <hr>
+    <div>
+      <form>
+        <div>
+          On/Off:
+          <label class="switch form-input">
+            <input id="enable-checkbox" type="checkbox" title="Turn ProxyGPT on or off">
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div title="Limit the number of queries sent to ChatGPT">
+          Proxy hourly limit:
+          <input id="limit" type="number" min="0" max="99">
+        </div>
+        
+        <!-- <div class="row">
+          Allow GPT-4:
+          <label class="switch form-input">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div> -->
+
+
+        <!-- <div class="row">
+          Max requests/day:
+          <input class="form-input form-box-input" type="number" min="1" value="100" required>
+        </div> -->
+      </form>
+      
+    </div>
+    <hr>
+    <div>
+      <div>
+        <span title="Use e-cash to query anonymously with ProxyGPT">E-cash</span>: <span id="stats_cash">0</span>
+        <span id="ecashList_toggle" title="Show/Hide e-cash">Toggle</span>
+      </div>
+      <div id="ecashContainer">
+        <ul id="ecashList">
+        </ul>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
