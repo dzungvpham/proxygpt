@@ -1,34 +1,51 @@
+.chat-snippet:hover .downvote {
+    visibility:visible;
+}
+
+.downvote {
+    visibility:hidden;
+    display: inline;
+    float: right;
+    padding: 0 7px 3px;
+    font-size: 20px;
+}
+
 .loadingContainer1 {
-    position:relative;
+    position: relative;
     margin: 10px 0 0 0;
 }
+
 .loadingContainer1 div {
-    height:10px;
-    width:10px;
-    border-radius:50%;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
     background: black;
-    float:left;
-    margin:0 1px;
-    background:#6859a3;
-    transform:scale(0);
+    float: left;
+    margin: 0 1px;
+    background: #6859a3;
+    transform: scale(0);
 }
+
 .loadingContainer1 .ball1 {
-    z-index:1;
+    z-index: 1;
     -moz-animation: grow 4.4s infinite ease-in-out;
     -webkit-animation: grow 4.4s infinite ease-in-out;
 }
+
 .loadingContainer1 .ball2 {
     -moz-animation: grow 4.4s infinite ease-in-out;
     -webkit-animation: grow 4.4s infinite ease-in-out;
     -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s;
 }
+
 .loadingContainer1 .ball3 {
     -moz-animation: grow 4.4s infinite ease-in-out;
     -webkit-animation: grow 4.4s infinite ease-in-out;
     -webkit-animation-delay: 0.6s;
     animation-delay: 0.6s;
 }
+
 .loadingContainer1 .ball4 {
     -moz-animation: grow 4.4s infinite ease-in-out;
     -webkit-animation: grow 4.4s infinite ease-in-out;
@@ -37,16 +54,112 @@
 }
 
 @-moz-keyframes grow {
-    0% {-moz-transform: scale(0);}
-    25% {-moz-transform: scale(1);}
-    50% {-moz-transform: scale(0);}
-    75% {-moz-transform: scale(1);background:#72c2c2;}
-    100% {-moz-transform: scale(0);background:#72c2c2;}
+    0% {
+        -moz-transform: scale(0);
+    }
+
+    25% {
+        -moz-transform: scale(1);
+    }
+
+    50% {
+        -moz-transform: scale(0);
+    }
+
+    75% {
+        -moz-transform: scale(1);
+        background: #72c2c2;
+    }
+
+    100% {
+        -moz-transform: scale(0);
+        background: #72c2c2;
+    }
 }
+
 @-webkit-keyframes grow {
-    0% {-webkit-transform: scale(0);}
-    25% {-webkit-transform: scale(1);}
-    50% {-webkit-transform: scale(0);}
-    75% {-webkit-transform: scale(1);background:#72c2c2;}
-    100% {-webkit-transform: scale(0);background:#72c2c2;}
+    0% {
+        -webkit-transform: scale(0);
+    }
+
+    25% {
+        -webkit-transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(0);
+    }
+
+    75% {
+        -webkit-transform: scale(1);
+        background: #72c2c2;
+    }
+
+    100% {
+        -webkit-transform: scale(0);
+        background: #72c2c2;
+    }
+}
+
+#refreshProxyBtn {
+    float: right;
+}
+
+#proxy {
+    font-size: 14px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-animation {
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.stop-spin-animation {
+    animation-play-state: paused;
+}
+
+.text-input {
+    height: 3.25em;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: black;
+    width: max-content;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    bottom: 110%; /* Adjust this value as needed */
+    left: 90%;
+    /* transform: translateX(-50%); */
+    margin-bottom: 3px; /* Space between the icon and tooltip */
+}
+
+.tooltip p {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.tooltip-container:hover .tooltip {
+    visibility: visible;
+    transition-delay: 500ms;
 }

@@ -6,33 +6,35 @@
     <link rel="icon" type="image/png" href="/icon.png">
     <link rel="stylesheet" href="css/chatgpt_stylesheet.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <noscript>You need to enable JavaScript to use ProxyGPT.</noscript>
 </head>
 
 <body>
     <div class="relative z-0 flex h-full w-full overflow-hidden">
-        <div class="flex-shrink-0 overflow-x-hidden bg-token-sidebar-surface-primary" style="width: 260px">
-            <div class="h-full w-[260px]">
-                <div class="flex h-full min-h-0 flex-col">
-                    <div class="flex h-full min-h-0 flex-col transition-opacity opacity-100">
-                        <div class="scrollbar-trigger relative h-full w-full flex-1 items-start border-white/20">
-                            <nav class="flex h-full w-full flex-col px-3 pb-3.5">
-                                <div class="sticky left-0 right-0 top-0 z-20 pt-3.5">
-                                    <div class="pb-0.5 last:pb-0" tabindex="0">
-                                        <a id="newConversationButton" class="group flex h-10 items-center gap-2 rounded-lg bg-token-sidebar-surface-primary px-2 font-medium hover:bg-token-sidebar-surface-secondary" href="#">
-                                            <div class="grow overflow-hidden text-ellipsis whitespace-nowrap text-sm text-token-text-primary">New conversation</div>
-                                        </a>
-                                    </div>
+        <div class="flex-shrink-0 overflow-x-hidden bg-token-sidebar-surface-primary h-full w-1/5">
+            <div class="flex h-full min-h-0 flex-col">
+                <div class="flex h-full min-h-0 flex-col transition-opacity opacity-100">
+                    <div class="scrollbar-trigger relative h-full w-full flex-1 items-start border-white/20">
+                        <nav class="flex h-full w-full flex-col px-3 pb-2">
+                            <div class="sticky left-0 right-0 top-0 z-20 pt-2">
+                                <div class="pb-0.5 last:pb-0" tabindex="0">
+                                    <a id="newConversationButton"
+                                        class="group flex h-fit gap-2 rounded-lg bg-token-sidebar-surface-primary px-2 py-2 font-medium hover:bg-token-sidebar-surface-secondary cursor-pointer">
+                                        <div
+                                            class="grow overflow-hidden text-ellipsis whitespace-normal text-sm text-token-text-primary">
+                                            New chat</div>
+                                    </a>
                                 </div>
-                                <div class="flex-col flex-1 transition-opacity duration-500 -mr-2 pr-2 overflow-y-auto">
-                                    <div class="sticky left-0 right-0 top-0 z-20 pt-3.5"></div>
-                                    <div class="flex flex-col gap-2 pb-2 text-token-text-primary text-sm">
-                                        <ol id="newChat"></ol>
-                                        <ol id="chatHistory"></ol>
-                                    </div>
+                            </div>
+                            <div class="flex-col flex-1 transition-opacity duration-500 -mr-2 pr-2 overflow-y-auto">
+                                <div class="sticky left-0 right-0 top-0 z-20 pt-1"></div>
+                                <div class="flex flex-col gap-2 pb-2 text-token-text-primary text-sm">
+                                    <ol id="chatHistory"></ol>
                                 </div>
-                            </nav>
-                        </div>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -40,50 +42,97 @@
         <div class="relative flex h-full max-w-full flex-1 flex-col overflow-hidden">
             <main class="relative h-full w-full flex-1 overflow-auto transition-width">
                 <div role="presentation" class="flex h-full flex-col">
-                    <div class="flex-1 overflow-scroll">
+                    <div class="flex-1 overflow-auto">
                         <div class="relative h-full">
                             <div class="flex flex-col pb-9 text-sm">
-                                <div class="sticky top-0 mb-1.5 flex items-center justify-center z-10 h-14 p-2 font-semibold bg-token-main-surface-primary">
-                                    <h1>Welcome to ProxyGPT!</h1>
+                                <div
+                                    class="sticky top-0 mb-1.5 flex justify-between z-10 h-fit p-2 font-semibold bg-token-main-surface-primary">
+                                    <div class="flex overflow-hidden gap-0">
+                                        <div
+                                            class="overflow-hidden hover:bg-token-main-surface-secondary flex flex-col w-full h-fit flex-grow relative dark:text-white rounded-lg bg-token-main-surface-primary">
+                                            <select id="chatbot"
+                                                class="m-0 w-fit cursor-pointer resize-none border-0 bg-transparent focus:ring-0 focus-visible:ring-0 dark:bg-transparent max-h-25 py-2 md:py-2 pr-8 md:pr-8 placeholder-black/50 dark:placeholder-white/50 pl-2 md:pl-3">
+                                                <option value="ChatGPT" selected="selected">ChatGPT</option>
+                                                <option value="Claude">Claude</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="flex pt-1 text-center text-2xl">Welcome to ProxyGPT!</div>
+                                    <div class="flex invisible overflow-hidden gap-0">
+                                        <div
+                                            class="overflow-hidden hover:bg-token-main-surface-secondary flex flex-col w-full h-fit flex-grow relative dark:text-white rounded-lg bg-token-main-surface-primary">
+                                            <select disabled
+                                                class="m-0 w-fit cursor-pointer resize-none border-0 bg-transparent focus:ring-0 focus-visible:ring-0 dark:bg-transparent max-h-25 py-2 md:py-2 pr-8 md:pr-8 placeholder-black/50 dark:placeholder-white/50 pl-2 md:pl-3">
+                                                <option value="ChatGPT" selected="selected">ChatGPT</option>
+                                                <option value="Claude">Claude</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div id="chatConversation"></div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="w-full pt-2 md:pt-0 dark:border-white/20 md:border-transparent md:dark:border-transparent md:w-[calc(100%-.5rem)]">
-                        <form id="chatForm" class="stretch mx-2 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-2xl xl:max-w-3xl">
-                            <div class="relative flex h-full flex-1 items-stretch md:flex-col">
-                                <label for="proxy">Choose proxy:</label>
+                    <div
+                        class="w-full pt-2 md:pt-0 dark:border-white/20 md:border-transparent md:dark:border-transparent md:w-[calc(100%-.5rem)]">
+                        <form id="chatForm"
+                            class="stretch mx-2 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-2xl xl:max-w-3xl">
+                            <div class="relative flex h-full flex-1 items-stretch flex-col">
+                                <label for="proxy">Proxy:
+                                    <span class="tooltip-container">&#128712;
+                                        <div class="tooltip">
+                                            <p>Statistics from last 7 days:</p>
+                                            <p>SLA: % of requests handled in &lt;1 minute</p>
+                                            <p>MTTR: Mean time to response</p>
+                                            <p>Load: Daily average number of requests</p>
+                                            <p>Downvote: % of requests downvoted by other users</p>
+                                        </div>
+                                    </span>
+                                    <button id="refreshProxyBtn" type="button"
+                                        class="spin-animation stop-spin-animation rounded-lg text-token-text-secondary hover:bg-token-main-surface-secondary">
+                                        <span class="flex h-[30px] w-[30px] items-center justify-center"
+                                            title="Refresh proxy list">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                                viewBox="0 0 24 24" class="icon-md-heavy">
+                                                <path fill="black"
+                                                    d="M3.07 10.876C3.623 6.436 7.41 3 12 3a9.15 9.15 0 0 1 6.012 2.254V4a1 1 0 1 1 2 0v4a1 1 0 0 1-1 1H15a1 1 0 1 1 0-2h1.957A7.15 7.15 0 0 0 12 5a7 7 0 0 0-6.946 6.124 1 1 0 1 1-1.984-.248m16.992 1.132a1 1 0 0 1 .868 1.116C20.377 17.564 16.59 21 12 21a9.15 9.15 0 0 1-6-2.244V20a1 1 0 1 1-2 0v-4a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2H7.043A7.15 7.15 0 0 0 12 19a7 7 0 0 0 6.946-6.124 1 1 0 0 1 1.116-.868">
+                                                </path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </label>
                                 <div
                                     class="overflow-hidden [&:has(textarea:focus)]:border-token-border-xheavy [&:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] flex flex-col w-full dark:border-token-border-heavy flex-grow relative border border-token-border-heavy dark:text-white rounded-2xl bg-token-main-surface-primary">
-                                    <select required name="proxy" id="proxy"
+                                    <select required disabled name="proxy" id="proxy"
                                         class="m-0 w-full resize-none border-0 bg-transparent focus:ring-0 focus-visible:ring-0 dark:bg-transparent max-h-25 py-[10px] pr-10 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4">
                                     </select>
                                 </div>
-                                <label for="payment">Payment:</label>
+                                <label for="payment" class="py-1">Payment:
+                                    <span class="tooltip-container">&#128712;
+                                        <div class="tooltip">
+                                            <p>You can obtain e-cash by volunteering to proxy!</p>
+                                        </div>
+                                    </span>
+                                </label>
                                 <div class="relative flex h-full flex-1 items-stretch md:flex-col">
                                     <div class="flex w-full items-center">
                                         <div
                                             class="overflow-hidden [&:has(textarea:focus)]:border-token-border-xheavy [&:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] flex flex-col w-full dark:border-token-border-heavy flex-grow relative border border-token-border-heavy dark:text-white rounded-2xl bg-token-main-surface-primary">
-                                            <textarea required id="payment" name="payment" rows="1" cols="50" maxlength="512"
-                                                placeholder="Test ETH for server or e-cash for browser proxies"
-                                                class="m-0 w-full resize-none border-0 bg-transparent focus:ring-0 focus-visible:ring-0 dark:bg-transparent max-h-25 py-[10px] pr-10 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4"></textarea>
-                                            <!-- <button type="button" id="requestPaymentBtn" title="Get wallet address for chosen server proxy"
-                                                class="absolute bottom-1.5 right-2 rounded-lg border border-black bg-black p-0.5 text-white transition-colors enabled:bg-black disabled:text-gray-400 disabled:opacity-10 dark:border-white dark:bg-white dark:hover:bg-white md:bottom-3 md:right-3">
-                                                Info
-                                            </button> -->
+                                            <textarea required id="payment" name="payment" rows="1" cols="50"
+                                                maxlength="512"
+                                                placeholder="Enter your e-cash here..."
+                                                class="text-input m-0 w-full resize-none border-0 bg-transparent focus:ring-0 focus-visible:ring-0 dark:bg-transparent max-h-25 py-[10px] pr-10 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <label for="prompt">Prompt:</label>
+                                <label for="prompt" class="py-1">Prompt:</label>
                                 <div class="relative flex h-full flex-1 items-stretch md:flex-col">
                                     <div class="flex w-full items-center">
                                         <div
                                             class="overflow-hidden [&:has(textarea:focus)]:border-token-border-xheavy [&:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] flex flex-col w-full dark:border-token-border-heavy flex-grow relative border border-token-border-heavy dark:text-white rounded-2xl bg-token-main-surface-primary">
                                             <textarea required id="prompt" name="prompt" rows="1" maxlength="2048"
                                                 placeholder="Enter your query here..."
-                                                class="m-0 w-full resize-none border-0 bg-transparent focus:ring-0 focus-visible:ring-0 dark:bg-transparent max-h-25 py-[10px] pr-10 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4"></textarea>
+                                                class="text-input m-0 w-full resize-none border-0 bg-transparent focus:ring-0 focus-visible:ring-0 dark:bg-transparent max-h-25 py-[10px] pr-10 md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4"></textarea>
                                             <button type="submit" id="submitButton" title="Submit your message"
                                                 class="absolute bottom-1.5 right-2 rounded-lg border border-black bg-black p-1 text-white transition-colors enabled:bg-black disabled:text-gray-400 disabled:opacity-10 dark:border-white dark:bg-white dark:hover:bg-white md:bottom-3 md:right-3">
                                                 Send
@@ -93,6 +142,10 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="relative px-2 py-2 text-center text-xs text-token-text-secondary md:px-[60px]">
+                            <span>ProxyGPT is a research project and may provide incorrect information. Use with
+                                caution.</span>
+                        </div>
                     </div>
                 </div>
             </main>
