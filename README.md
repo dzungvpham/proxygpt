@@ -28,7 +28,8 @@ The demo is accessible at: http://proxygpt6ruel6k7a6qu7ieoer6z2eudrlhlxlfdshm7w4
   - First, set up a tor hidden service by following the steps here: https://community.torproject.org/onion-services/setup/.
   - Copy the `index.html` file to your hidden service's directory, and see if you can access your hidden site over Tor to verify the installation.
   - Install a MySQL database
-  - Create a Python virtual environment, then install everything in the `requirements.txt` file, e.g. `pip install -r requirements.txt`. Activate the environment once finished (e.g., `source path/to/your/environment/bin/activate`)
+  - Run the following: `sudo apt-get install python3-dev default-libmysqlclient-dev build-essential pkg-config`
+  - Create a Python virtual environment, activate it, then install everything in the `requirements.txt` file, e.g. `pip install -r requirements.txt`.
   - Make sure nginx is correctly configured. Refer to our sample `nginx.conf`, and make the appropriate changes to `/etc/nginx/nginx/conf`
   - Set up your `.env` file (for the envinronment variables). Refer to `sample_env` for the variables needed. You will need to generate the e-cash keys and JWT authentication keys (use our `keygen.py` file).
   - Use `gunicorn` to start the coordinator. Check out out `app.sh` for the commands (or you can just run `app.sh -s` to start, `-t` to terminate).
