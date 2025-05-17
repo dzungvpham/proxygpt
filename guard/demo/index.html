@@ -5,10 +5,11 @@
   <meta charset="UTF-8" />
   <title>Llama-Guard-3-1B Demo</title>
   <script type="module">
-    import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.0';
+    import { pipeline, AutoTokenizer } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.0';
     import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm";
 
     let classifier = null;
+    let tokenizer = null;
     let classifier_lib = null;
     let benchmark_data = null;
 
@@ -86,6 +87,7 @@
               dtype: dtype
             }
           );
+          tokenizer = await AutoTokenizer.from_pretrained('onnx-community/Llama-Guard-3-1B');
         } else {
           classifier = await CreateMLCEngine(
             webLlmEngineConfig.model_list[0].model_id,
@@ -137,7 +139,7 @@ Provide your safety assessment for ONLY THE LAST User message in the above conve
         pad_token_id: 0,
       };
       const result = await classifier(input, config);
-      return result[0]["generated_text"].split("\n").slice(-2).join("\n").trim();
+      return {"text": result[0]["generated_text"].split("\n").slice(-2).join("\n").trim()};
     }
 
     async function classifyWebLLM(text) {
@@ -173,7 +175,7 @@ Provide your safety assessment for ONLY THE LAST User message in the above conve
         temperature: 0.0,
         max_tokens: 1,
       });
-      return completion.choices[0].message.content;
+      return {"text": completion.choices[0].message.content, "usage": completion.usage};
     }
 
     async function classifyText(text, update = true) {
@@ -189,7 +191,7 @@ Provide your safety assessment for ONLY THE LAST User message in the above conve
       const endTime = performance.now();
 
       if (update) {
-        updateText(`(Took ${Math.round((endTime - startTime) / 10) / 100} sec)\n${classification}`);
+        updateText(`(Took ${Math.round((endTime - startTime) / 10) / 100} sec)\n${classification.text}`);
       }
       return classification;
     }
@@ -222,28 +224,33 @@ Provide your safety assessment for ONLY THE LAST User message in the above conve
         benchmark_data = benchmark_data.filter(r => r.prompt != "REDACTED").map(r => ({ "prompt": r.prompt, "label": r.prompt_label == "safe" ? 0 : 1 }));
       }
       updateText("Starting benchmark");
-      const n = benchmark_data.length
+      const n = benchmark_data.length;
       const classifications = [];
+      const token_counts = [];
       const times = [];
       for (let i = 0; i < n; ++i) {
         const startTime = performance.now();
         const classification = await classifyText(benchmark_data[i].prompt);
         const endTime = performance.now();
-        classifications.push(classification.startsWith("safe") ? 0 : 1);
+        classifications.push(classification.text.startsWith("safe") ? 0 : 1);
         times.push(endTime - startTime);
+
+        if (tokenizer != null) {
+          const tokens = await tokenizer.encode(benchmark_data[i].prompt);
+          token_counts.push(tokens.length);
+        } else {
+          token_counts.push(classification.usage.prompt_tokens);
+        }        
+
         updateText(`Finished ${i + 1}/${n}`);
       }
 
       const metrics = evaluateMetrics(classifications, benchmark_data.map(r => r.label));
-      const timeMetrics = evaluateTime(times.slice(5));
+      const timeMetrics = evaluateTime(times.slice(5), token_counts.slice(5));
       updateText(`Test results: ${JSON.stringify(metrics)}\nTime results: ${JSON.stringify(timeMetrics)}`);
     }
 
     function evaluateMetrics(predictions, labels) {
-      if (predictions.length !== labels.length) {
-        throw new Error(`Predictions and labels must be the same length. (${predictions.length}, ${labels.length})`);
-      }
-
       let truePositive = 0;
       let trueNegative = 0;
       let falsePositive = 0;
@@ -280,7 +287,7 @@ Provide your safety assessment for ONLY THE LAST User message in the above conve
       return { positive, negative, accuracy, precision, recall, specificity };
     }
 
-    function evaluateTime(times) {
+    function evaluateTime(times, token_counts) {
       const n = times.length;
       times = times.map(t => t / 1000);
       const mean = times.reduce((sum, val) => sum + val, 0) / n;
@@ -291,7 +298,16 @@ Provide your safety assessment for ONLY THE LAST User message in the above conve
       const mid = Math.floor(n / 2);
       const median = n % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
 
-      return { mean, stdDev, median };
+      const time_per_token = times.map((t, i) => t / token_counts[i]);
+      const mean_time_per_token = time_per_token.reduce((sum, val) => sum + val, 0) / n;
+      const variance_time_per_token = time_per_token.reduce((sum, val) => sum + Math.pow(val - mean_time_per_token, 2), 0) / n;
+      const stdDev_time_per_token = Math.sqrt(variance_time_per_token);
+      // Median
+      const sorted_time_per_token = [...time_per_token].sort((a, b) => a - b);
+      const mid_time_per_token = Math.floor(n / 2);
+      const median_time_per_token = n % 2 === 0 ? (sorted_time_per_token[mid - 1] + sorted_time_per_token[mid]) / 2 : sorted_time_per_token[mid];
+
+      return { mean, stdDev, median, mean_time_per_token, stdDev_time_per_token, median_time_per_token };
     }
 
     window.addEventListener('DOMContentLoaded', () => {
