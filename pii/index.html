@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>PII Detection Transformers.js Demo</title>
+  <script type="module">
+    import { pipeline, AutoTokenizer } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.0';
+
+    let classifier = null;
+    let tokenizer = null;
+    let benchmark_data = null;
+
+    function delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function updateText(text) {
+      document.getElementById('output').innerText = text;
+    }
+
+    function progressCallbackTJS(p) {
+      const progress = p.progress ? `${Math.round(p.progress)}%` : "";
+      updateText(`Status: ${p.status} ${progress}`);
+    }
+
+    async function loadModel() {
+      updateText("Loading model...");
+      const device = document.getElementById('device-select').value;
+      const dtype = document.getElementById('dtype-select').value;
+
+      try {
+        const startTime = performance.now();
+        classifier = await pipeline(
+          'token-classification',
+          'pavidu/piiranha-v1-detect-personal-information-onnx',
+          {
+            progress_callback: (p) => {
+              const progress = p.progress ? `${Math.round(p.progress)}%` : "";
+              document.getElementById('output').innerText = `Status: ${p.status} ${progress}`;
+            },
+            device: device,
+            dtype: dtype
+          }
+        );
+        tokenizer = await AutoTokenizer.from_pretrained('pavidu/piiranha-v1-detect-personal-information-onnx');
+        const endTime = performance.now();
+        updateText(`Model ready after ${Math.round((endTime - startTime) / 10) / 100} sec. Enter text and press Enter.`);
+      } catch (e) {
+        updateText(`Exception occurred. Please make sure your environment supports ${device} and ${dtype}.\n${e}`);
+        classifier = null;
+        tokenizer = null;
+      }
+    }
+
+    async function classifyText(text, update = true) {
+      if (!classifier) return;
+
+      let result;
+      const startTime = performance.now();
+      result = await classifier(text);
+      const endTime = performance.now();
+
+      const cleaned_result = [];
+      let cur_text = "", cur_entity, cur_idx;
+      for (let r of result) {
+        if (!cur_text || (r.entity == cur_entity && r.index == cur_idx + 1)) {
+          cur_text = cur_text + r.word;
+          cur_entity = r.entity;
+          cur_idx = r.index;
+        } else {
+          cleaned_result.push({"text": cur_text.trim(), "entity": cur_entity});
+          cur_text = r.word;
+          cur_entity = r.entity;
+          cur_idx = r.index;
+        }
+      }
+      if (!!cur_text) {
+        cleaned_result.push({"text": cur_text.trim(), "entity": cur_entity});
+      }
+
+      if (update) {
+        updateText(`(Took ${Math.round((endTime - startTime) / 10) / 100} sec)\n${JSON.stringify(cleaned_result, null, 2)}`);
+      }
+      return cleaned_result;
+    }
+
+    async function loadJSONL(url) {
+      const cacheName = 'PII-Detection-Browser-Demo';
+      const cache = await caches.open(cacheName);
+      const cachedResponse = await cache.match(url);
+      if (cachedResponse) {
+        console.log('Loaded from cache:', url);
+        return await cachedResponse.text();
+      }
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        await cache.put(url, response.clone());
+        return await response.text();
+      } catch (error) {
+        console.error('Failed to load JSONL file:', error);
+        return null;
+      }
+    }
+
+    async function runBenchmark() {
+      if (benchmark_data == null) {
+        updateText("Loading benchmark data");
+        benchmark_data = await loadJSONL("https://huggingface.co/datasets/ai4privacy/open-pii-masking-500k-ai4privacy/resolve/main/data/validation/test.jsonl");
+        benchmark_data = benchmark_data.trim().split("\n").map(r => JSON.parse(r));
+        benchmark_data = benchmark_data.filter(r => r.language != "te" && r.language != "hi");
+        benchmark_data = benchmark_data.map(r => ({"source_text": r.source_text, "privacy_mask": r.privacy_mask.filter(m => !["TIME", "TITLE", "AGE", "SEX"].includes(m.label))}));
+        benchmark_data = benchmark_data.filter(r => r.privacy_mask.length > 0);
+      }
+      updateText("Starting benchmark");
+      // const n = benchmark_data.length;
+      const n = 2000;
+      const recalls = [];
+      const precisions = [];
+      const token_counts = [];
+      const times = [];
+      for (let i = 0; i < n; ++i) {
+        const startTime = performance.now();
+        const preds = await classifyText(benchmark_data[i].source_text, false);
+        const endTime = performance.now();
+        
+        const pred_text = preds.map(p => p.text).join(" ");
+        const targets = benchmark_data[i].privacy_mask;
+        const target_text = targets.map(t => t.value).join(" ");
+        for (const target of targets) {
+          recalls.push(pred_text.includes(target.value));
+        }
+        for (const pred of preds) {
+          precisions.push(target_text.includes(pred.text));
+        }
+
+        const tokens = await tokenizer.encode(benchmark_data[i].source_text);
+        token_counts.push(tokens.length);
+        times.push(endTime - startTime);
+        updateText(`Finished ${i + 1}/${n}`);
+        await delay(1);
+      }
+
+      const metrics = evaluateMetrics(recalls, precisions);
+      const timeMetrics = evaluateTime(times.slice(5), token_counts.slice(5));
+      updateText(`Test results: ${JSON.stringify(metrics)}\nTime results: ${JSON.stringify(timeMetrics)}`);
+    }
+
+    function evaluateMetrics(recalls, precisions) {
+      const num_targets = recalls.length;
+      const num_preds = precisions.length;
+      const recall = recalls.reduce((a, b) => a + b, 0) / num_targets;
+      const precision = precisions.reduce((a, b) => a + b, 0) / num_preds;
+      return { num_targets, num_preds, precision, recall };
+    }
+
+    function evaluateTime(times, token_counts) {
+      const n = times.length;
+      times = times.map(t => t / 1000);
+      const mean = times.reduce((sum, val) => sum + val, 0) / n;
+      const variance = times.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / n;
+      const stdDev = Math.sqrt(variance);
+      // Median
+      const sorted = [...times].sort((a, b) => a - b);
+      const mid = Math.floor(n / 2);
+      const median = n % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+
+      const time_per_token = times.map((t, i) => t / token_counts[i]);
+      const mean_time_per_token = time_per_token.reduce((sum, val) => sum + val, 0) / n;
+      const variance_time_per_token = time_per_token.reduce((sum, val) => sum + Math.pow(val - mean_time_per_token, 2), 0) / n;
+      const stdDev_time_per_token = Math.sqrt(variance_time_per_token);
+      // Median
+      const sorted_time_per_token = [...time_per_token].sort((a, b) => a - b);
+      const mid_time_per_token = Math.floor(n / 2);
+      const median_time_per_token = n % 2 === 0 ? (sorted_time_per_token[mid - 1] + sorted_time_per_token[mid]) / 2 : sorted_time_per_token[mid];
+
+      return { mean, stdDev, median, mean_time_per_token, stdDev_time_per_token, median_time_per_token };
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('text');
+      input.addEventListener('keydown', async (event) => {
+        if (event.key == "Enter" && !event.shiftKey && input.value.trim()) {
+          event.preventDefault();
+          if (classifier == null) {
+            updateText("No loaded model. Please load a model first.");
+            return;
+          }
+          updateText("Processing...");
+          await classifyText(input.value.trim());
+        }
+      });
+
+      document.getElementById('load-button').addEventListener('click', async () => {
+        await loadModel();
+      });
+
+      document.getElementById('benchmark-button').addEventListener('click', async () => {
+        if (classifier == null) {
+          updateText("No loaded model. Please load a model first.");
+          return;
+        }
+        await runBenchmark();
+      });
+    });
+  </script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1em;
+    }
+
+    textarea {
+      width: 100%;
+      height: 60px;
+      font-size: 1em;
+      padding: 0.5em;
+    }
+
+    pre {
+      background: #f0f0f0;
+      padding: 1em;
+      white-space: pre-wrap;
+      margin-top: 1em;
+    }
+
+    .controls {
+      margin-bottom: 1em;
+    }
+
+    select,
+    button {
+      font-size: 1em;
+      padding: 0.3em;
+      margin-right: 0.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>PII Detection Transformers.js Demo</h1>
+  <div class="controls">
+    <label for="device-select">Device:</label>
+    <select id="device-select">
+      <option value="wasm" selected>wasm</option>
+      <option value="webgpu" disabled>webgpu</option>
+    </select>
+
+    <label for="dtype-select">Dtype:</label>
+    <select id="dtype-select">
+      <option value="fp32">fp32</option>
+      <option value="fp16">fp16</option>
+      <option value="q8">q8</option>
+      <option value="int8">int8</option>
+      <option value="uint8">uint8</option>
+      <option value="q4">q4</option>
+      <option value="bnb4">bnb4</option>
+      <option value="q4f16" selected>q4f16</option>
+    </select>
+
+    <button id="load-button">Load Model</button>
+
+    <button id="benchmark-button">Start benchmark</button>
+  </div>
+
+  <textarea id="text" placeholder="Type text and press Enter..."></textarea>
+  <pre id="output">Please configure model options and click on "Load Model"</pre>
+</body>
+
+</html>
