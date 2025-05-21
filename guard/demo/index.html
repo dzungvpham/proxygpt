@@ -229,17 +229,37 @@ Provide your safety assessment for ONLY THE LAST User message in the above conve
       const token_counts = [];
       const times = [];
       for (let i = 0; i < n; ++i) {
-        const startTime = performance.now();
-        const classification = await classifyText(benchmark_data[i].prompt);
-        const endTime = performance.now();
-        classifications.push(classification.text.startsWith("safe") ? 0 : 1);
-        times.push(endTime - startTime);
+        let test = benchmark_data[i].prompt;
+        const chunk_size = 1500;
+        const num_chunks = Math.ceil(test.length / chunk_size);
+        const test_chunks = [];
+        for (let j = 0; j < num_chunks; ++j) {
+          test_chunks.push(test.slice(j * chunk_size, (j + 1) * chunk_size));
+        }
+        let is_safe = true;
+        let total_time = 0;
+        let total_tokens = 0;
+        for (const chunk of test_chunks) {
+          const startTime = performance.now();
+          const classification = await classifyText(chunk);
+          const endTime = performance.now();
+          total_time += endTime - startTime;
+          if (tokenizer == null) {
+            total_tokens += classification.usage.prompt_tokens;
+          }
+          is_safe = is_safe && classification.text.startsWith("safe");
+          if (!is_safe) {
+            break;
+          }
+        }
+        classifications.push(is_safe ? 0 : 1);
+        times.push(total_time);
 
         if (tokenizer != null) {
-          const tokens = await tokenizer.encode(benchmark_data[i].prompt);
+          const tokens = await tokenizer.encode(test);
           token_counts.push(tokens.length);
         } else {
-          token_counts.push(classification.usage.prompt_tokens);
+          token_counts.push(total_tokens);
         }        
 
         updateText(`Finished ${i + 1}/${n}`);

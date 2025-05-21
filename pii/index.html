@@ -86,19 +86,28 @@
     }
 
     async function loadJSONL(url) {
-      const cacheName = 'PII-Detection-Browser-Demo';
-      const cache = await caches.open(cacheName);
-      const cachedResponse = await cache.match(url);
-      if (cachedResponse) {
-        console.log('Loaded from cache:', url);
-        return await cachedResponse.text();
+      let cache = null;
+      try {
+        const cacheName = 'PII-Detection-Browser-Demo';
+        cache = await caches.open(cacheName);
+        const cachedResponse = await cache.match(url);
+        if (cachedResponse) {
+          console.log('Loaded from cache:', url);
+          return await cachedResponse.text();
+        }
+      } catch (e) {
+        console.log(`Failed to load cache: ${e}`);
+        cache = null;
       }
+      
       try {
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        await cache.put(url, response.clone());
+        if (cache != null) {
+          await cache.put(url, response.clone());
+        }
         return await response.text();
       } catch (error) {
         console.error('Failed to load JSONL file:', error);
