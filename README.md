@@ -5,8 +5,6 @@ This is the repo for the paper: ProxyGPT: Enabling Anonymous Queries in AI Chatb
 ProxyGPT lets you use ChatGPT, Claude, etc. anonymously by relaying your queries to proxies who are also chatbot users like you.
 Unlike existing similar services (e.g., anonchatgpt.com), we use Tor by default. Multi-query conversation is also possible. And anyone can volunteer to become proxies by using our browser extension (which supports Chromium browsers).
 
-The demo is accessible at: http://proxygpt6ruel6k7a6qu7ieoer6z2eudrlhlxlfdshm7w4xnmqqwwrad.onion
-
 **Disclaimer:** This is a proof-of-concept for research/academic purposes only and is not ready for production use. It has not been audited for security. Use at your own risk.
 
 **Repo organization:**
