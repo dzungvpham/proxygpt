@@ -5,11 +5,31 @@
   <meta charset="UTF-8" />
   <title>PII Detection Transformers.js Demo</title>
   <script type="module">
-    import { pipeline, AutoTokenizer } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.0';
+    import { pipeline, AutoTokenizer } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.2.0';
 
     let classifier = null;
     let tokenizer = null;
     let benchmark_data = null;
+    let currentModel = null;
+
+    const MODEL_CONFIGS = {
+      'piiranha-v1': {
+        modelId: 'pavidu/piiranha-v1-detect-personal-information-onnx',
+        useAggregation: false,
+        // All dtypes work on wasm for this model
+        wasmIncompatibleDtypes: [],
+        recommendedDevice: 'wasm',
+        recommendedDtype: 'q4f16',
+      },
+      'oai-privacy-filter': {
+        modelId: 'openai/privacy-filter',
+        useAggregation: true,
+        // Quantized variants use GatherBlockQuantized which is not supported by WASM backend
+        wasmIncompatibleDtypes: ['q4', 'q4f16', 'q8', 'int8', 'uint8', 'bnb4'],
+        recommendedDevice: 'webgpu',
+        recommendedDtype: 'q4f16',
+      },
+    };
 
     function delay(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -19,48 +39,93 @@
       document.getElementById('output').innerText = text;
     }
 
-    function progressCallbackTJS(p) {
-      const progress = p.progress ? `${Math.round(p.progress)}%` : "";
-      updateText(`Status: ${p.status} ${progress}`);
+    function checkWebGPUSupport() {
+      return !!navigator.gpu;
+    }
+
+    function updateDeviceOptions() {
+      const webgpuOption = document.querySelector('#device-select option[value="webgpu"]');
+      if (checkWebGPUSupport()) {
+        webgpuOption.disabled = false;
+      } else {
+        webgpuOption.disabled = true;
+        webgpuOption.textContent = 'webgpu (not available)';
+      }
+    }
+
+    function applyModelDefaults() {
+      const modelKey = document.getElementById('model-select').value;
+      const config = MODEL_CONFIGS[modelKey];
+      const deviceSelect = document.getElementById('device-select');
+      const dtypeSelect = document.getElementById('dtype-select');
+
+      // Set recommended device (fall back to wasm if webgpu not available)
+      if (config.recommendedDevice === 'webgpu' && checkWebGPUSupport()) {
+        deviceSelect.value = 'webgpu';
+      } else {
+        deviceSelect.value = 'wasm';
+      }
+      dtypeSelect.value = config.recommendedDtype;
+      updateCompatibilityWarning();
+    }
+
+    function updateCompatibilityWarning() {
+      const modelKey = document.getElementById('model-select').value;
+      const device = document.getElementById('device-select').value;
+      const dtype = document.getElementById('dtype-select').value;
+      const config = MODEL_CONFIGS[modelKey];
+      const warning = document.getElementById('compat-warning');
+
+      if (device === 'wasm' && config.wasmIncompatibleDtypes.includes(dtype)) {
+        warning.textContent = `⚠️ "${modelKey}" with dtype="${dtype}" requires WebGPU. The WASM backend does not support the GatherBlockQuantized operator used by quantized variants of this model. Switch to WebGPU or use fp32/fp16.`;
+        warning.style.display = 'block';
+      } else {
+        warning.style.display = 'none';
+      }
     }
 
     async function loadModel() {
-      updateText("Loading model...");
       const device = document.getElementById('device-select').value;
       const dtype = document.getElementById('dtype-select').value;
+      const modelKey = document.getElementById('model-select').value;
+      const config = MODEL_CONFIGS[modelKey];
+
+      if (device === 'wasm' && config.wasmIncompatibleDtypes.includes(dtype)) {
+        updateText(`Cannot load "${modelKey}" with dtype="${dtype}" on WASM. Quantized variants of this model use the GatherBlockQuantized operator which is not supported by the WASM backend. Please switch to WebGPU or use fp32/fp16.`);
+        return;
+      }
+
+      updateText("Loading model...");
 
       try {
         const startTime = performance.now();
+        const pipelineOptions = {
+          progress_callback: (p) => {
+            const progress = p.progress ? `${Math.round(p.progress)}%` : "";
+            document.getElementById('output').innerText = `Status: ${p.status} ${progress}`;
+          },
+          device: device,
+          dtype: dtype,
+        };
+
         classifier = await pipeline(
           'token-classification',
-          'pavidu/piiranha-v1-detect-personal-information-onnx',
-          {
-            progress_callback: (p) => {
-              const progress = p.progress ? `${Math.round(p.progress)}%` : "";
-              document.getElementById('output').innerText = `Status: ${p.status} ${progress}`;
-            },
-            device: device,
-            dtype: dtype
-          }
+          config.modelId,
+          pipelineOptions
         );
-        tokenizer = await AutoTokenizer.from_pretrained('pavidu/piiranha-v1-detect-personal-information-onnx');
+        tokenizer = await AutoTokenizer.from_pretrained(config.modelId);
+        currentModel = modelKey;
         const endTime = performance.now();
-        updateText(`Model ready after ${Math.round((endTime - startTime) / 10) / 100} sec. Enter text and press Enter.`);
+        updateText(`Model "${modelKey}" ready after ${Math.round((endTime - startTime) / 10) / 100} sec. Enter text and press Enter.`);
       } catch (e) {
         updateText(`Exception occurred. Please make sure your environment supports ${device} and ${dtype}.\n${e}`);
         classifier = null;
         tokenizer = null;
+        currentModel = null;
       }
     }
 
-    async function classifyText(text, update = true) {
-      if (!classifier) return;
-
-      let result;
-      const startTime = performance.now();
-      result = await classifier(text);
-      const endTime = performance.now();
-
+    function mergeTokensPiiranha(result) {
       const cleaned_result = [];
       let cur_text = "", cur_entity, cur_idx;
       for (let r of result) {
@@ -69,14 +134,44 @@
           cur_entity = r.entity;
           cur_idx = r.index;
         } else {
-          cleaned_result.push({"text": cur_text.trim(), "entity": cur_entity});
+          cleaned_result.push({ "text": cur_text.trim(), "entity": cur_entity });
           cur_text = r.word;
           cur_entity = r.entity;
           cur_idx = r.index;
         }
       }
       if (!!cur_text) {
-        cleaned_result.push({"text": cur_text.trim(), "entity": cur_entity});
+        cleaned_result.push({ "text": cur_text.trim(), "entity": cur_entity });
+      }
+      return cleaned_result;
+    }
+
+    function mergeTokensOAI(result) {
+      return result.map(r => ({
+        text: r.word.trim(),
+        entity: r.entity_group,
+      }));
+    }
+
+    async function classifyText(text, update = true) {
+      if (!classifier) return;
+
+      const config = MODEL_CONFIGS[currentModel];
+      const startTime = performance.now();
+
+      let result;
+      if (config.useAggregation) {
+        result = await classifier(text, { aggregation_strategy: "simple" });
+      } else {
+        result = await classifier(text);
+      }
+      const endTime = performance.now();
+
+      let cleaned_result;
+      if (config.useAggregation) {
+        cleaned_result = mergeTokensOAI(result);
+      } else {
+        cleaned_result = mergeTokensPiiranha(result);
       }
 
       if (update) {
@@ -99,7 +194,7 @@
         console.log(`Failed to load cache: ${e}`);
         cache = null;
       }
-      
+
       try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -121,11 +216,10 @@
         benchmark_data = await loadJSONL("https://huggingface.co/datasets/ai4privacy/open-pii-masking-500k-ai4privacy/resolve/main/data/validation/test.jsonl");
         benchmark_data = benchmark_data.trim().split("\n").map(r => JSON.parse(r));
         benchmark_data = benchmark_data.filter(r => r.language != "te" && r.language != "hi");
-        benchmark_data = benchmark_data.map(r => ({"source_text": r.source_text, "privacy_mask": r.privacy_mask.filter(m => !["TIME", "TITLE", "AGE", "SEX"].includes(m.label))}));
+        benchmark_data = benchmark_data.map(r => ({ "source_text": r.source_text, "privacy_mask": r.privacy_mask.filter(m => !["TIME", "TITLE", "AGE", "SEX"].includes(m.label)) }));
         benchmark_data = benchmark_data.filter(r => r.privacy_mask.length > 0);
       }
       updateText("Starting benchmark");
-      // const n = benchmark_data.length;
       const n = 2000;
       const recalls = [];
       const precisions = [];
@@ -135,7 +229,7 @@
         const startTime = performance.now();
         const preds = await classifyText(benchmark_data[i].source_text, false);
         const endTime = performance.now();
-        
+
         const pred_text = preds.map(p => p.text).join(" ");
         const targets = benchmark_data[i].privacy_mask;
         const target_text = targets.map(t => t.value).join(" ");
@@ -168,28 +262,43 @@
 
     function evaluateTime(times, token_counts) {
       const n = times.length;
-      times = times.map(t => t / 1000);
-      const mean = times.reduce((sum, val) => sum + val, 0) / n;
-      const variance = times.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / n;
+      // Convert ms to seconds
+      const times_sec = times.map(t => t / 1000);
+
+      const mean = times_sec.reduce((sum, val) => sum + val, 0) / n;
+      const variance = times_sec.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / n;
       const stdDev = Math.sqrt(variance);
-      // Median
-      const sorted = [...times].sort((a, b) => a - b);
+      const sorted = [...times_sec].sort((a, b) => a - b);
       const mid = Math.floor(n / 2);
       const median = n % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
 
-      const time_per_token = times.map((t, i) => t / token_counts[i]);
-      const mean_time_per_token = time_per_token.reduce((sum, val) => sum + val, 0) / n;
-      const variance_time_per_token = time_per_token.reduce((sum, val) => sum + Math.pow(val - mean_time_per_token, 2), 0) / n;
-      const stdDev_time_per_token = Math.sqrt(variance_time_per_token);
-      // Median
-      const sorted_time_per_token = [...time_per_token].sort((a, b) => a - b);
-      const mid_time_per_token = Math.floor(n / 2);
-      const median_time_per_token = n % 2 === 0 ? (sorted_time_per_token[mid - 1] + sorted_time_per_token[mid]) / 2 : sorted_time_per_token[mid];
+      // Tokens per second (token_count / time_in_seconds)
+      const tokens_per_sec = times_sec.map((t, i) => token_counts[i] / t);
+      const mean_tokens_per_sec = tokens_per_sec.reduce((sum, val) => sum + val, 0) / n;
+      const variance_tokens_per_sec = tokens_per_sec.reduce((sum, val) => sum + Math.pow(val - mean_tokens_per_sec, 2), 0) / n;
+      const stdDev_tokens_per_sec = Math.sqrt(variance_tokens_per_sec);
+      const sorted_tokens_per_sec = [...tokens_per_sec].sort((a, b) => a - b);
+      const mid_tps = Math.floor(n / 2);
+      const median_tokens_per_sec = n % 2 === 0 ? (sorted_tokens_per_sec[mid_tps - 1] + sorted_tokens_per_sec[mid_tps]) / 2 : sorted_tokens_per_sec[mid_tps];
 
-      return { mean, stdDev, median, mean_time_per_token, stdDev_time_per_token, median_time_per_token };
+      return {
+        mean_time_sec: mean,
+        stdDev_time_sec: stdDev,
+        median_time_sec: median,
+        mean_tokens_per_sec,
+        stdDev_tokens_per_sec,
+        median_tokens_per_sec,
+      };
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      updateDeviceOptions();
+      applyModelDefaults();
+
+      document.getElementById('model-select').addEventListener('change', applyModelDefaults);
+      document.getElementById('device-select').addEventListener('change', updateCompatibilityWarning);
+      document.getElementById('dtype-select').addEventListener('change', updateCompatibilityWarning);
+
       const input = document.getElementById('text');
       input.addEventListener('keydown', async (event) => {
         if (event.key == "Enter" && !event.shiftKey && input.value.trim()) {
@@ -240,6 +349,16 @@
       margin-bottom: 1em;
     }
 
+    #compat-warning {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      color: #856404;
+      padding: 0.6em 1em;
+      margin-bottom: 1em;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
     select,
     button {
       font-size: 1em;
@@ -252,10 +371,16 @@
 <body>
   <h1>PII Detection Transformers.js Demo</h1>
   <div class="controls">
+    <label for="model-select">Model:</label>
+    <select id="model-select">
+      <option value="piiranha-v1" selected>piiranha-v1</option>
+      <option value="oai-privacy-filter">oai-privacy-filter</option>
+    </select>
+
     <label for="device-select">Device:</label>
     <select id="device-select">
       <option value="wasm" selected>wasm</option>
-      <option value="webgpu" disabled>webgpu</option>
+      <option value="webgpu">webgpu</option>
     </select>
 
     <label for="dtype-select">Dtype:</label>
@@ -275,8 +400,10 @@
     <button id="benchmark-button">Start benchmark</button>
   </div>
 
+  <div id="compat-warning" style="display:none;"></div>
+
   <textarea id="text" placeholder="Type text and press Enter..."></textarea>
-  <pre id="output">Please configure model options and click on "Load Model"</pre>
+  <pre id="output">Please select a model, configure options, and click "Load Model"</pre>
 </body>
 
 </html>
