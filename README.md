@@ -14,6 +14,7 @@ Unlike existing similar services, we use Tor by default. Multi-query conversatio
 - `guard`: code for prompt safety LLM guard benchmark.
 - `pii`: code for PII detection benchmark.
 - `simulation`: code for simulating workload.
+- `wildchat`: code for re-identification attack study on WildChat-4.8M
 
 
 **How to set up:**
@@ -44,3 +45,20 @@ Unlike existing similar services, we use Tor by default. Multi-query conversatio
 - Open `guard/demo/index.html` or `pii/index.html` with your Google Chrome or Brave browser.
 - Select which model and inference engine/quantization that you want to run, then click on "Load model".
 - Type your input in the input text box, or click on "Run benchmark" to test the model's performance.
+
+**WildChat analysis**
+- Set up a new virtual environment and activate it (we used Python 3.12)
+- Install Stylometrix (follow these steps precisely to avoid issues):
+  - Install spacy (CUDA is highly recommended), e.g.,: `pip install -U 'spacy[cuda12x]'` (make sure to choose the right CUDA version). Then run `python -m spacy download en_core_web_trf` for the large English model.
+  - Clone the StyloMetrix repo at https://github.com/NASK-NLP/StyloMetrix (do not run `pip install stylometrix` because its spacy requirement is broken).
+  - Modify the repo's requirements.txt file by removing the version pin for spacy (e.g., remove the ==3.7.2)
+  - Modify the repo's setup.cfg file by replacing {{VERSION_PLACEHOLDER}} with 1.0.0
+  - Now, run `pip install -e .` in the repo
+- Next, install the following: `pip install datasets google-genai huggingface_hub matplotlib python-dotenv seaborn tqdm`
+- Download WildChat-4.8M dataset, e.g.,: `hf download allenai/WildChat-4.8M --repo-type dataset --local-dir /datasets/ai/` (might need to run `hf auth login` first)
+- Now, cd into `wildchat/` and run the following scripts in order (it will take a while):
+  - `preprocess.py`: This will create 320 files in the `wildchat_preprocessed/`.
+  - `filter.py`: This will filter the dataset into a `wildchat_filtered_4o20240806_41mini20250414_device_deduped.csv`
+  - `stylometrix.py`: Compute Stylometrix features for the filtered dataset into `wildchat_embeddings/wildchat_filtered_en_2048_stylometrix.csv`.
+  - `get_embeddings.py`: Optional, only if you want Gemini embedding, but you will need to set up a credential file for Google Cloud. It will try to get Gemini embedding for the ENTIRE unfiltered WildChat-4.8M dataset.
+  - `analyze_wildchat.ipynb`: Notebook for plotting some stats and running the linkage attack using the generated data.

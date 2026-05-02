@@ -1,5 +1,10 @@
 env/
+env*/
 __pycache__/
 *.log
 .env
 *.DS_Store
+analysis/
+node_modules/
+package-lock.json
+package.json
