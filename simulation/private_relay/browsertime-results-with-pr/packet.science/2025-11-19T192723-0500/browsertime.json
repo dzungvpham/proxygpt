@@ -1,0 +1,2582 @@
+[
+    {
+        "info": {
+            "browsertime": { "version": "25.1.0" },
+            "url": "https://packet.science",
+            "timestamp": "2025-11-19T19:27:37-05:00",
+            "connectivity": { "engine": "external", "profile": "native" },
+            "extra": {},
+            "browser": {
+                "name": "Safari",
+                "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                "version": "18.6"
+            }
+        },
+        "files": {
+            "video": [],
+            "screenshot": [],
+            "timeline": [],
+            "consoleLog": [],
+            "netLog": [],
+            "perfLog": [],
+            "geckoProfiles": [],
+            "memoryReports": []
+        },
+        "markedAsFailure": 0,
+        "failureMessages": [],
+        "cdp": { "performance": [] },
+        "android": { "batteryTemperature": [], "power": [] },
+        "timestamps": [
+            "2025-11-19T19:27:25-05:00",
+            "2025-11-19T19:27:38-05:00",
+            "2025-11-19T19:27:51-05:00",
+            "2025-11-19T19:28:04-05:00",
+            "2025-11-19T19:28:17-05:00",
+            "2025-11-19T19:28:30-05:00",
+            "2025-11-19T19:28:43-05:00",
+            "2025-11-19T19:28:56-05:00",
+            "2025-11-19T19:29:09-05:00",
+            "2025-11-19T19:29:22-05:00",
+            "2025-11-19T19:29:34-05:00",
+            "2025-11-19T19:29:47-05:00",
+            "2025-11-19T19:30:00-05:00",
+            "2025-11-19T19:30:13-05:00",
+            "2025-11-19T19:30:25-05:00",
+            "2025-11-19T19:30:38-05:00",
+            "2025-11-19T19:30:51-05:00",
+            "2025-11-19T19:31:04-05:00",
+            "2025-11-19T19:31:17-05:00",
+            "2025-11-19T19:31:30-05:00"
+        ],
+        "browserScripts": [
+            {
+                "browser": {
+                    "cpuBenchmark": 31,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598445419,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 6, "duration": 1206 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 1422,
+                    "navigationTiming": {
+                        "responseStart": 1208,
+                        "redirectEnd": 0,
+                        "loadEventStart": 1422,
+                        "domainLookupEnd": 411,
+                        "duration": 1422,
+                        "workerStart": 0,
+                        "fetchStart": 1,
+                        "domainLookupStart": 409,
+                        "connectStart": 416,
+                        "domInteractive": 1422,
+                        "loadEventEnd": 1422,
+                        "requestStart": 1064,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 1422,
+                        "redirectStart": 0,
+                        "domComplete": 1422,
+                        "responseEnd": 1208,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 513,
+                        "domContentLoadedEventStart": 1422,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 0,
+                        "domInteractiveTime": 1422,
+                        "domainLookupTime": 2,
+                        "domContentLoadedTime": 1422,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 1422,
+                        "frontEndTime": 214,
+                        "serverConnectionTime": 645,
+                        "serverResponseTime": 144,
+                        "backEndTime": 1208
+                    },
+                    "paintTiming": { "first-contentful-paint": 1366 },
+                    "serverTimings": [],
+                    "ttfb": 1208,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 45,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598458431,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 355 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 679,
+                    "navigationTiming": {
+                        "responseStart": 545,
+                        "redirectEnd": 0,
+                        "loadEventStart": 679,
+                        "domainLookupEnd": 0,
+                        "duration": 679,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 4,
+                        "domInteractive": 677,
+                        "loadEventEnd": 679,
+                        "requestStart": 428,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 677,
+                        "redirectStart": 0,
+                        "domComplete": 679,
+                        "responseEnd": 546,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 6,
+                        "domContentLoadedEventStart": 677,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 1,
+                        "domInteractiveTime": 677,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 677,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 679,
+                        "frontEndTime": 133,
+                        "serverConnectionTime": 423,
+                        "serverResponseTime": 118,
+                        "backEndTime": 545
+                    },
+                    "paintTiming": { "first-contentful-paint": 686 },
+                    "serverTimings": [],
+                    "ttfb": 545,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 46,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598471423,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 351.00000000000006 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 490,
+                    "navigationTiming": {
+                        "responseStart": 350,
+                        "redirectEnd": 0,
+                        "loadEventStart": 490,
+                        "domainLookupEnd": 0,
+                        "duration": 490,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 489,
+                        "loadEventEnd": 490,
+                        "requestStart": 236,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 489,
+                        "redirectStart": 0,
+                        "domComplete": 489,
+                        "responseEnd": 352,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 5,
+                        "domContentLoadedEventStart": 489,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 489,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 489,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 490,
+                        "frontEndTime": 138,
+                        "serverConnectionTime": 232,
+                        "serverResponseTime": 116,
+                        "backEndTime": 350
+                    },
+                    "paintTiming": { "first-contentful-paint": 485 },
+                    "serverTimings": [],
+                    "ttfb": 350,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 46,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598484494,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 359.00000000000017 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 477,
+                    "navigationTiming": {
+                        "responseStart": 342,
+                        "redirectEnd": 0,
+                        "loadEventStart": 477,
+                        "domainLookupEnd": 0,
+                        "duration": 477,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 477,
+                        "loadEventEnd": 477,
+                        "requestStart": 225,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 477,
+                        "redirectStart": 0,
+                        "domComplete": 477,
+                        "responseEnd": 344,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 3,
+                        "domContentLoadedEventStart": 477,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 477,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 477,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 477,
+                        "frontEndTime": 133,
+                        "serverConnectionTime": 222,
+                        "serverResponseTime": 119,
+                        "backEndTime": 342
+                    },
+                    "paintTiming": { "first-contentful-paint": 487 },
+                    "serverTimings": [],
+                    "ttfb": 342,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 46,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598497445,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 362 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 491,
+                    "navigationTiming": {
+                        "responseStart": 351,
+                        "redirectEnd": 0,
+                        "loadEventStart": 491,
+                        "domainLookupEnd": 0,
+                        "duration": 491,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 2,
+                        "domInteractive": 487,
+                        "loadEventEnd": 491,
+                        "requestStart": 235,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 487,
+                        "redirectStart": 0,
+                        "domComplete": 491,
+                        "responseEnd": 353,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 3,
+                        "domContentLoadedEventStart": 487,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 487,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 487,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 491,
+                        "frontEndTime": 138,
+                        "serverConnectionTime": 232,
+                        "serverResponseTime": 118,
+                        "backEndTime": 351
+                    },
+                    "paintTiming": { "first-contentful-paint": 500 },
+                    "serverTimings": [],
+                    "ttfb": 351,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 32,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598510463,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 344 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 503,
+                    "navigationTiming": {
+                        "responseStart": 371,
+                        "redirectEnd": 0,
+                        "loadEventStart": 503,
+                        "domainLookupEnd": 0,
+                        "duration": 503,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 4,
+                        "domInteractive": 500,
+                        "loadEventEnd": 503,
+                        "requestStart": 233,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 500,
+                        "redirectStart": 0,
+                        "domComplete": 503,
+                        "responseEnd": 371,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 5,
+                        "domContentLoadedEventStart": 500,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 0,
+                        "domInteractiveTime": 500,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 500,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 503,
+                        "frontEndTime": 132,
+                        "serverConnectionTime": 228,
+                        "serverResponseTime": 138,
+                        "backEndTime": 371
+                    },
+                    "paintTiming": { "first-contentful-paint": 510 },
+                    "serverTimings": [],
+                    "ttfb": 371,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 44,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598523455,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 360.00000000000017 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 477,
+                    "navigationTiming": {
+                        "responseStart": 343,
+                        "redirectEnd": 0,
+                        "loadEventStart": 477,
+                        "domainLookupEnd": 0,
+                        "duration": 477,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 475,
+                        "loadEventEnd": 477,
+                        "requestStart": 229,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 475,
+                        "redirectStart": 0,
+                        "domComplete": 476,
+                        "responseEnd": 345,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 4,
+                        "domContentLoadedEventStart": 475,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 475,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 475,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 477,
+                        "frontEndTime": 132,
+                        "serverConnectionTime": 225,
+                        "serverResponseTime": 116,
+                        "backEndTime": 343
+                    },
+                    "paintTiming": { "first-contentful-paint": 482 },
+                    "serverTimings": [],
+                    "ttfb": 343,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 45,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598536246,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 343.00000000000017 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 479,
+                    "navigationTiming": {
+                        "responseStart": 346,
+                        "redirectEnd": 0,
+                        "loadEventStart": 479,
+                        "domainLookupEnd": 0,
+                        "duration": 479,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 2,
+                        "domInteractive": 478,
+                        "loadEventEnd": 479,
+                        "requestStart": 230,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 478,
+                        "redirectStart": 0,
+                        "domComplete": 478,
+                        "responseEnd": 349,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 3,
+                        "domContentLoadedEventStart": 478,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 3,
+                        "domInteractiveTime": 478,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 478,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 479,
+                        "frontEndTime": 130,
+                        "serverConnectionTime": 227,
+                        "serverResponseTime": 119,
+                        "backEndTime": 346
+                    },
+                    "paintTiming": { "first-contentful-paint": 482 },
+                    "serverTimings": [],
+                    "ttfb": 346,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 45,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598549185,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 336.0000000000001 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 473,
+                    "navigationTiming": {
+                        "responseStart": 344,
+                        "redirectEnd": 0,
+                        "loadEventStart": 473,
+                        "domainLookupEnd": 0,
+                        "duration": 473,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 472,
+                        "loadEventEnd": 473,
+                        "requestStart": 227,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 472,
+                        "redirectStart": 0,
+                        "domComplete": 473,
+                        "responseEnd": 344,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 4,
+                        "domContentLoadedEventStart": 472,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 0,
+                        "domInteractiveTime": 472,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 472,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 473,
+                        "frontEndTime": 129,
+                        "serverConnectionTime": 224,
+                        "serverResponseTime": 117,
+                        "backEndTime": 344
+                    },
+                    "paintTiming": { "first-contentful-paint": 478 },
+                    "serverTimings": [],
+                    "ttfb": 344,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 45,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598562109,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 345.00000000000017 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 478,
+                    "navigationTiming": {
+                        "responseStart": 346,
+                        "redirectEnd": 0,
+                        "loadEventStart": 478,
+                        "domainLookupEnd": 0,
+                        "duration": 478,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 478,
+                        "loadEventEnd": 478,
+                        "requestStart": 235,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 478,
+                        "redirectStart": 0,
+                        "domComplete": 478,
+                        "responseEnd": 348,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 5,
+                        "domContentLoadedEventStart": 478,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 478,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 478,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 478,
+                        "frontEndTime": 130,
+                        "serverConnectionTime": 231,
+                        "serverResponseTime": 113,
+                        "backEndTime": 346
+                    },
+                    "paintTiming": { "first-contentful-paint": 487 },
+                    "serverTimings": [],
+                    "ttfb": 346,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 45,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598574861,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 356.00000000000017 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 480,
+                    "navigationTiming": {
+                        "responseStart": 343,
+                        "redirectEnd": 0,
+                        "loadEventStart": 480,
+                        "domainLookupEnd": 0,
+                        "duration": 480,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 477,
+                        "loadEventEnd": 480,
+                        "requestStart": 230,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 477,
+                        "redirectStart": 0,
+                        "domComplete": 480,
+                        "responseEnd": 346,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 4,
+                        "domContentLoadedEventStart": 477,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 3,
+                        "domInteractiveTime": 477,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 477,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 480,
+                        "frontEndTime": 134,
+                        "serverConnectionTime": 226,
+                        "serverResponseTime": 116,
+                        "backEndTime": 343
+                    },
+                    "paintTiming": { "first-contentful-paint": 487 },
+                    "serverTimings": [],
+                    "ttfb": 343,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 45,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598587826,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 345.00000000000017 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 480,
+                    "navigationTiming": {
+                        "responseStart": 347,
+                        "redirectEnd": 0,
+                        "loadEventStart": 480,
+                        "domainLookupEnd": 0,
+                        "duration": 480,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 477,
+                        "loadEventEnd": 480,
+                        "requestStart": 233,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 477,
+                        "redirectStart": 0,
+                        "domComplete": 480,
+                        "responseEnd": 348,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 4,
+                        "domContentLoadedEventStart": 477,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 1,
+                        "domInteractiveTime": 477,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 477,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 480,
+                        "frontEndTime": 132,
+                        "serverConnectionTime": 229,
+                        "serverResponseTime": 115,
+                        "backEndTime": 347
+                    },
+                    "paintTiming": { "first-contentful-paint": 488 },
+                    "serverTimings": [],
+                    "ttfb": 347,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 45,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598600763,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 359 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 490,
+                    "navigationTiming": {
+                        "responseStart": 350,
+                        "redirectEnd": 0,
+                        "loadEventStart": 490,
+                        "domainLookupEnd": 0,
+                        "duration": 490,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 486,
+                        "loadEventEnd": 490,
+                        "requestStart": 232,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 486,
+                        "redirectStart": 0,
+                        "domComplete": 490,
+                        "responseEnd": 352,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 4,
+                        "domContentLoadedEventStart": 486,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 486,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 486,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 490,
+                        "frontEndTime": 138,
+                        "serverConnectionTime": 228,
+                        "serverResponseTime": 120,
+                        "backEndTime": 350
+                    },
+                    "paintTiming": { "first-contentful-paint": 499 },
+                    "serverTimings": [],
+                    "ttfb": 350,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 34,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598613715,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 359 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 486,
+                    "navigationTiming": {
+                        "responseStart": 349,
+                        "redirectEnd": 0,
+                        "loadEventStart": 486,
+                        "domainLookupEnd": 0,
+                        "duration": 486,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 482,
+                        "loadEventEnd": 486,
+                        "requestStart": 234,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 482,
+                        "redirectStart": 0,
+                        "domComplete": 485,
+                        "responseEnd": 350,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 4,
+                        "domContentLoadedEventStart": 482,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 1,
+                        "domInteractiveTime": 482,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 482,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 486,
+                        "frontEndTime": 136,
+                        "serverConnectionTime": 231,
+                        "serverResponseTime": 116,
+                        "backEndTime": 349
+                    },
+                    "paintTiming": { "first-contentful-paint": 495 },
+                    "serverTimings": [],
+                    "ttfb": 349,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 31,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598625894,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 353 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 494,
+                    "navigationTiming": {
+                        "responseStart": 360,
+                        "redirectEnd": 0,
+                        "loadEventStart": 494,
+                        "domainLookupEnd": 0,
+                        "duration": 494,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 492,
+                        "loadEventEnd": 494,
+                        "requestStart": 236,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 492,
+                        "redirectStart": 0,
+                        "domComplete": 494,
+                        "responseEnd": 361,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 5,
+                        "domContentLoadedEventStart": 492,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 1,
+                        "domInteractiveTime": 492,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 492,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 494,
+                        "frontEndTime": 133,
+                        "serverConnectionTime": 232,
+                        "serverResponseTime": 125,
+                        "backEndTime": 360
+                    },
+                    "paintTiming": { "first-contentful-paint": 501 },
+                    "serverTimings": [],
+                    "ttfb": 360,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 29,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598638910,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 345.00000000000017 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 474,
+                    "navigationTiming": {
+                        "responseStart": 342,
+                        "redirectEnd": 0,
+                        "loadEventStart": 474,
+                        "domainLookupEnd": 0,
+                        "duration": 474,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 471,
+                        "loadEventEnd": 474,
+                        "requestStart": 225,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 471,
+                        "redirectStart": 0,
+                        "domComplete": 474,
+                        "responseEnd": 344,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 4,
+                        "domContentLoadedEventStart": 471,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 471,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 471,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 474,
+                        "frontEndTime": 130,
+                        "serverConnectionTime": 222,
+                        "serverResponseTime": 119,
+                        "backEndTime": 342
+                    },
+                    "paintTiming": { "first-contentful-paint": 481 },
+                    "serverTimings": [],
+                    "ttfb": 342,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 46,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598651903,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 449 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 520,
+                    "navigationTiming": {
+                        "responseStart": 348,
+                        "redirectEnd": 0,
+                        "loadEventStart": 520,
+                        "domainLookupEnd": 0,
+                        "duration": 520,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 7,
+                        "domInteractive": 517,
+                        "loadEventEnd": 520,
+                        "requestStart": 233,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 517,
+                        "redirectStart": 0,
+                        "domComplete": 520,
+                        "responseEnd": 351,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 9,
+                        "domContentLoadedEventStart": 517,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 3,
+                        "domInteractiveTime": 517,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 517,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 520,
+                        "frontEndTime": 169,
+                        "serverConnectionTime": 226,
+                        "serverResponseTime": 118,
+                        "backEndTime": 348
+                    },
+                    "paintTiming": { "first-contentful-paint": 525 },
+                    "serverTimings": [],
+                    "ttfb": 348,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 46,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598664841,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 363.00000000000017 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 482,
+                    "navigationTiming": {
+                        "responseStart": 342,
+                        "redirectEnd": 0,
+                        "loadEventStart": 482,
+                        "domainLookupEnd": 0,
+                        "duration": 482,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 477,
+                        "loadEventEnd": 482,
+                        "requestStart": 227,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 477,
+                        "redirectStart": 0,
+                        "domComplete": 481,
+                        "responseEnd": 344,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 5,
+                        "domContentLoadedEventStart": 477,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 477,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 477,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 482,
+                        "frontEndTime": 138,
+                        "serverConnectionTime": 224,
+                        "serverResponseTime": 117,
+                        "backEndTime": 342
+                    },
+                    "paintTiming": { "first-contentful-paint": 491 },
+                    "serverTimings": [],
+                    "ttfb": 342,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 45,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598677753,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 362 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 492,
+                    "navigationTiming": {
+                        "responseStart": 351,
+                        "redirectEnd": 0,
+                        "loadEventStart": 492,
+                        "domainLookupEnd": 0,
+                        "duration": 492,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 486,
+                        "loadEventEnd": 492,
+                        "requestStart": 236,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 486,
+                        "redirectStart": 0,
+                        "domComplete": 492,
+                        "responseEnd": 354,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 5,
+                        "domContentLoadedEventStart": 486,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 3,
+                        "domInteractiveTime": 486,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 486,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 492,
+                        "frontEndTime": 138,
+                        "serverConnectionTime": 232,
+                        "serverResponseTime": 118,
+                        "backEndTime": 351
+                    },
+                    "paintTiming": { "first-contentful-paint": 503 },
+                    "serverTimings": [],
+                    "ttfb": 351,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            },
+            {
+                "browser": {
+                    "cpuBenchmark": 31,
+                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Safari/605.1.15",
+                    "windowSize": "1366x716"
+                },
+                "pageinfo": {
+                    "documentHeight": 969,
+                    "documentSize": {
+                        "decodedBodySize": 23639,
+                        "encodedBodySize": 6626,
+                        "transferSize": 6926
+                    },
+                    "documentTitle": "Jade Sheffey",
+                    "documentWidth": 1351,
+                    "domElements": 180,
+                    "navigationStartTime": 1763598690637,
+                    "nextHopProtocol": "h2",
+                    "resources": { "count": 3, "duration": 347.0000000000001 },
+                    "responsive": true,
+                    "url": "https://packet.science/",
+                    "visualElements": {
+                        "viewport": { "width": 1351, "height": 716 },
+                        "heroes": [
+                            {
+                                "x": 116,
+                                "height": 202,
+                                "y": 40,
+                                "width": 260,
+                                "html": "<img src=\"https://packet.science/images/profile.png\" alt=\"Profile Picture\" style=\"max-width: 100%;\">",
+                                "filename": "profile.png",
+                                "name": "LargestImage"
+                            },
+                            {
+                                "x": 416,
+                                "height": 51,
+                                "y": 65,
+                                "width": 840,
+                                "html": "<h1 id=\"about-me\"></h1>",
+                                "filename": null,
+                                "name": "Heading"
+                            }
+                        ]
+                    }
+                },
+                "timings": {
+                    "loadEventEnd": 479,
+                    "navigationTiming": {
+                        "responseStart": 347,
+                        "redirectEnd": 0,
+                        "loadEventStart": 479,
+                        "domainLookupEnd": 0,
+                        "duration": 479,
+                        "workerStart": 0,
+                        "fetchStart": 0,
+                        "domainLookupStart": 0,
+                        "connectStart": 3,
+                        "domInteractive": 479,
+                        "loadEventEnd": 479,
+                        "requestStart": 233,
+                        "unloadEventEnd": 0,
+                        "domContentLoadedEventEnd": 479,
+                        "redirectStart": 0,
+                        "domComplete": 479,
+                        "responseEnd": 349,
+                        "unloadEventStart": 0,
+                        "secureConnectionStart": 4,
+                        "domContentLoadedEventStart": 479,
+                        "startTime": 0
+                    },
+                    "pageTimings": {
+                        "pageDownloadTime": 2,
+                        "domInteractiveTime": 479,
+                        "domainLookupTime": 0,
+                        "domContentLoadedTime": 479,
+                        "redirectionTime": 0,
+                        "pageLoadTime": 479,
+                        "frontEndTime": 130,
+                        "serverConnectionTime": 229,
+                        "serverResponseTime": 116,
+                        "backEndTime": 347
+                    },
+                    "paintTiming": { "first-contentful-paint": 476 },
+                    "serverTimings": [],
+                    "ttfb": 347,
+                    "userTimings": { "marks": [], "measures": [] }
+                }
+            }
+        ],
+        "visualMetrics": [],
+        "deltaToTTFB": [
+            { "firstContentfulPaint": 158 },
+            { "firstContentfulPaint": 141 },
+            { "firstContentfulPaint": 135 },
+            { "firstContentfulPaint": 145 },
+            { "firstContentfulPaint": 149 },
+            { "firstContentfulPaint": 139 },
+            { "firstContentfulPaint": 139 },
+            { "firstContentfulPaint": 136 },
+            { "firstContentfulPaint": 134 },
+            { "firstContentfulPaint": 141 },
+            { "firstContentfulPaint": 144 },
+            { "firstContentfulPaint": 141 },
+            { "firstContentfulPaint": 149 },
+            { "firstContentfulPaint": 146 },
+            { "firstContentfulPaint": 141 },
+            { "firstContentfulPaint": 139 },
+            { "firstContentfulPaint": 177 },
+            { "firstContentfulPaint": 149 },
+            { "firstContentfulPaint": 152 },
+            { "firstContentfulPaint": 129 }
+        ],
+        "cpu": [],
+        "googleWebVitals": [],
+        "extras": [
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {},
+            {}
+        ],
+        "fullyLoaded": [],
+        "mainDocumentTimings": [],
+        "errors": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "renderBlocking": [],
+        "server": {
+            "processesAtStart": [
+                1002, 1054, 1058, 1057, 1036, 1035, 1062, 1059, 1060, 1037,
+                1031, 1033, 1034, 1032, 1033, 1039, 1041, 1039, 1039, 1037
+            ]
+        },
+        "statistics": {
+            "browser": {
+                "cpuBenchmark": {
+                    "median": 45,
+                    "mean": 41,
+                    "mdev": 1.4455,
+                    "rsd": 15.728755580432104,
+                    "stddev": 6,
+                    "min": 29,
+                    "p10": 31,
+                    "p90": 46,
+                    "p99": 46,
+                    "max": 46
+                }
+            },
+            "pageinfo": {
+                "documentHeight": {
+                    "median": 969,
+                    "mean": 969,
+                    "mdev": 0,
+                    "rsd": 0,
+                    "stddev": 0,
+                    "min": 969,
+                    "p10": 969,
+                    "p90": 969,
+                    "p99": 969,
+                    "max": 969
+                },
+                "documentSize": {
+                    "decodedBodySize": {
+                        "median": 23639,
+                        "mean": 23639,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 23639,
+                        "p10": 23639,
+                        "p90": 23639,
+                        "p99": 23639,
+                        "max": 23639
+                    },
+                    "encodedBodySize": {
+                        "median": 6626,
+                        "mean": 6626,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 6626,
+                        "p10": 6626,
+                        "p90": 6626,
+                        "p99": 6626,
+                        "max": 6626
+                    },
+                    "transferSize": {
+                        "median": 6926,
+                        "mean": 6926,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 6926,
+                        "p10": 6926,
+                        "p90": 6926,
+                        "p99": 6926,
+                        "max": 6926
+                    }
+                },
+                "documentWidth": {
+                    "median": 1351,
+                    "mean": 1351,
+                    "mdev": 0,
+                    "rsd": 0,
+                    "stddev": 0,
+                    "min": 1351,
+                    "p10": 1351,
+                    "p90": 1351,
+                    "p99": 1351,
+                    "max": 1351
+                },
+                "domElements": {
+                    "median": 180,
+                    "mean": 180,
+                    "mdev": 0,
+                    "rsd": 0,
+                    "stddev": 0,
+                    "min": 180,
+                    "p10": 180,
+                    "p90": 180,
+                    "p99": 180,
+                    "max": 180
+                },
+                "navigationStartTime": {
+                    "median": 1763598568485,
+                    "mean": 1763598568289,
+                    "mdev": 15508.6482,
+                    "rsd": 0.000003932685386339003,
+                    "stddev": 69357,
+                    "min": 1763598445419,
+                    "p10": 1763598471423,
+                    "p90": 1763598677753,
+                    "p99": 1763598690637,
+                    "max": 1763598690637
+                },
+                "resources": {
+                    "count": {
+                        "median": 3,
+                        "mean": 3,
+                        "mdev": 0.1462,
+                        "rsd": 20.75666163590797,
+                        "stddev": 1,
+                        "min": 3,
+                        "p10": 3,
+                        "p90": 3,
+                        "p99": 6,
+                        "max": 6
+                    },
+                    "duration": {
+                        "median": 356,
+                        "mean": 400,
+                        "mdev": 41.6495,
+                        "rsd": 46.5713985043468,
+                        "stddev": 186,
+                        "min": 336,
+                        "p10": 344,
+                        "p90": 449,
+                        "p99": 1206,
+                        "max": 1206
+                    }
+                },
+                "visualElements": {
+                    "viewport": {
+                        "width": {
+                            "median": 1351,
+                            "mean": 1351,
+                            "mdev": 0,
+                            "rsd": 0,
+                            "stddev": 0,
+                            "min": 1351,
+                            "p10": 1351,
+                            "p90": 1351,
+                            "p99": 1351,
+                            "max": 1351
+                        },
+                        "height": {
+                            "median": 716,
+                            "mean": 716,
+                            "mdev": 0,
+                            "rsd": 0,
+                            "stddev": 0,
+                            "min": 716,
+                            "p10": 716,
+                            "p90": 716,
+                            "p99": 716,
+                            "max": 716
+                        }
+                    },
+                    "heroes": {
+                        "0": {
+                            "x": {
+                                "median": 116,
+                                "mean": 116,
+                                "mdev": 0,
+                                "rsd": 0,
+                                "stddev": 0,
+                                "min": 116,
+                                "p10": 116,
+                                "p90": 116,
+                                "p99": 116,
+                                "max": 116
+                            },
+                            "height": {
+                                "median": 202,
+                                "mean": 202,
+                                "mdev": 0,
+                                "rsd": 0,
+                                "stddev": 0,
+                                "min": 202,
+                                "p10": 202,
+                                "p90": 202,
+                                "p99": 202,
+                                "max": 202
+                            },
+                            "y": {
+                                "median": 40,
+                                "mean": 40,
+                                "mdev": 0,
+                                "rsd": 0,
+                                "stddev": 0,
+                                "min": 40,
+                                "p10": 40,
+                                "p90": 40,
+                                "p99": 40,
+                                "max": 40
+                            },
+                            "width": {
+                                "median": 260,
+                                "mean": 260,
+                                "mdev": 0,
+                                "rsd": 0,
+                                "stddev": 0,
+                                "min": 260,
+                                "p10": 260,
+                                "p90": 260,
+                                "p99": 260,
+                                "max": 260
+                            }
+                        },
+                        "1": {
+                            "x": {
+                                "median": 416,
+                                "mean": 416,
+                                "mdev": 0,
+                                "rsd": 0,
+                                "stddev": 0,
+                                "min": 416,
+                                "p10": 416,
+                                "p90": 416,
+                                "p99": 416,
+                                "max": 416
+                            },
+                            "height": {
+                                "median": 51,
+                                "mean": 51,
+                                "mdev": 0,
+                                "rsd": 0,
+                                "stddev": 0,
+                                "min": 51,
+                                "p10": 51,
+                                "p90": 51,
+                                "p99": 51,
+                                "max": 51
+                            },
+                            "y": {
+                                "median": 65,
+                                "mean": 65,
+                                "mdev": 0,
+                                "rsd": 0,
+                                "stddev": 0,
+                                "min": 65,
+                                "p10": 65,
+                                "p90": 65,
+                                "p99": 65,
+                                "max": 65
+                            },
+                            "width": {
+                                "median": 840,
+                                "mean": 840,
+                                "mdev": 0,
+                                "rsd": 0,
+                                "stddev": 0,
+                                "min": 840,
+                                "p10": 840,
+                                "p90": 840,
+                                "p99": 840,
+                                "max": 840
+                            }
+                        }
+                    }
+                }
+            },
+            "timings": {
+                "loadEventEnd": {
+                    "median": 484,
+                    "mean": 542,
+                    "mdev": 46.1595,
+                    "rsd": 38.06589871663567,
+                    "stddev": 206,
+                    "min": 473,
+                    "p10": 477,
+                    "p90": 679,
+                    "p99": 1422,
+                    "max": 1422
+                },
+                "navigationTiming": {
+                    "responseStart": {
+                        "median": 348,
+                        "mean": 401,
+                        "mdev": 42.5024,
+                        "rsd": 47.37109797872517,
+                        "stddev": 190,
+                        "min": 342,
+                        "p10": 342,
+                        "p90": 545,
+                        "p99": 1208,
+                        "max": 1208
+                    },
+                    "redirectEnd": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 0,
+                        "max": 0
+                    },
+                    "loadEventStart": {
+                        "median": 484,
+                        "mean": 542,
+                        "mdev": 46.1595,
+                        "rsd": 38.06589871663567,
+                        "stddev": 206,
+                        "min": 473,
+                        "p10": 477,
+                        "p90": 679,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "domainLookupEnd": {
+                        "median": 0,
+                        "mean": 21,
+                        "mdev": 20.0297,
+                        "rsd": 435.88989435406734,
+                        "stddev": 90,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 411,
+                        "max": 411
+                    },
+                    "duration": {
+                        "median": 484,
+                        "mean": 542,
+                        "mdev": 46.1595,
+                        "rsd": 38.06589871663567,
+                        "stddev": 206,
+                        "min": 473,
+                        "p10": 477,
+                        "p90": 679,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "workerStart": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 0,
+                        "max": 0
+                    },
+                    "fetchStart": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0.0487,
+                        "rsd": 435.8898943540673,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 1,
+                        "max": 1
+                    },
+                    "domainLookupStart": {
+                        "median": 0,
+                        "mean": 20,
+                        "mdev": 19.9322,
+                        "rsd": 435.88989435406734,
+                        "stddev": 89,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 409,
+                        "max": 409
+                    },
+                    "connectStart": {
+                        "median": 3,
+                        "mean": 24,
+                        "mdev": 20.1181,
+                        "rsd": 377.2356543610273,
+                        "stddev": 90,
+                        "min": 2,
+                        "p10": 3,
+                        "p90": 7,
+                        "p99": 416,
+                        "max": 416
+                    },
+                    "domInteractive": {
+                        "median": 481,
+                        "mean": 540,
+                        "mdev": 46.2771,
+                        "rsd": 38.32898540952332,
+                        "stddev": 207,
+                        "min": 471,
+                        "p10": 475,
+                        "p90": 677,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "loadEventEnd": {
+                        "median": 484,
+                        "mean": 542,
+                        "mdev": 46.1595,
+                        "rsd": 38.06589871663567,
+                        "stddev": 206,
+                        "min": 473,
+                        "p10": 477,
+                        "p90": 679,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "requestStart": {
+                        "median": 233,
+                        "mean": 283,
+                        "mdev": 41.1934,
+                        "rsd": 65.08471203884119,
+                        "stddev": 184,
+                        "min": 225,
+                        "p10": 227,
+                        "p90": 428,
+                        "p99": 1064,
+                        "max": 1064
+                    },
+                    "unloadEventEnd": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 0,
+                        "max": 0
+                    },
+                    "domContentLoadedEventEnd": {
+                        "median": 481,
+                        "mean": 540,
+                        "mdev": 46.2771,
+                        "rsd": 38.32898540952332,
+                        "stddev": 207,
+                        "min": 471,
+                        "p10": 475,
+                        "p90": 677,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "redirectStart": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 0,
+                        "max": 0
+                    },
+                    "domComplete": {
+                        "median": 483,
+                        "mean": 542,
+                        "mdev": 46.1757,
+                        "rsd": 38.09683018218148,
+                        "stddev": 207,
+                        "min": 473,
+                        "p10": 476,
+                        "p90": 679,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "responseEnd": {
+                        "median": 350,
+                        "mean": 403,
+                        "mdev": 42.4057,
+                        "rsd": 47.06390421002617,
+                        "stddev": 190,
+                        "min": 344,
+                        "p10": 344,
+                        "p90": 546,
+                        "p99": 1208,
+                        "max": 1208
+                    },
+                    "unloadEventStart": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 0,
+                        "max": 0
+                    },
+                    "secureConnectionStart": {
+                        "median": 4,
+                        "mean": 30,
+                        "mdev": 24.7816,
+                        "rsd": 370.03891548340187,
+                        "stddev": 111,
+                        "min": 3,
+                        "p10": 3,
+                        "p90": 9,
+                        "p99": 513,
+                        "max": 513
+                    },
+                    "domContentLoadedEventStart": {
+                        "median": 481,
+                        "mean": 540,
+                        "mdev": 46.2771,
+                        "rsd": 38.32898540952332,
+                        "stddev": 207,
+                        "min": 471,
+                        "p10": 475,
+                        "p90": 677,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "startTime": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 0,
+                        "max": 0
+                    }
+                },
+                "pageTimings": {
+                    "pageDownloadTime": {
+                        "median": 2,
+                        "mean": 2,
+                        "mdev": 0.2133,
+                        "rsd": 56.11407067158504,
+                        "stddev": 1,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 3,
+                        "p99": 3,
+                        "max": 3
+                    },
+                    "domInteractiveTime": {
+                        "median": 481,
+                        "mean": 540,
+                        "mdev": 46.2771,
+                        "rsd": 38.32898540952332,
+                        "stddev": 207,
+                        "min": 471,
+                        "p10": 475,
+                        "p90": 677,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "domainLookupTime": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0.0975,
+                        "rsd": 435.8898943540673,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 2,
+                        "max": 2
+                    },
+                    "domContentLoadedTime": {
+                        "median": 481,
+                        "mean": 540,
+                        "mdev": 46.2771,
+                        "rsd": 38.32898540952332,
+                        "stddev": 207,
+                        "min": 471,
+                        "p10": 475,
+                        "p90": 677,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "redirectionTime": {
+                        "median": 0,
+                        "mean": 0,
+                        "mdev": 0,
+                        "rsd": 0,
+                        "stddev": 0,
+                        "min": 0,
+                        "p10": 0,
+                        "p90": 0,
+                        "p99": 0,
+                        "max": 0
+                    },
+                    "pageLoadTime": {
+                        "median": 484,
+                        "mean": 542,
+                        "mdev": 46.1595,
+                        "rsd": 38.06589871663567,
+                        "stddev": 206,
+                        "min": 473,
+                        "p10": 477,
+                        "p90": 679,
+                        "p99": 1422,
+                        "max": 1422
+                    },
+                    "frontEndTime": {
+                        "median": 133,
+                        "mean": 139,
+                        "mdev": 4.2546,
+                        "rsd": 13.65412289965655,
+                        "stddev": 19,
+                        "min": 129,
+                        "p10": 130,
+                        "p90": 169,
+                        "p99": 214,
+                        "max": 214
+                    },
+                    "serverConnectionTime": {
+                        "median": 229,
+                        "mean": 258,
+                        "mdev": 22.0021,
+                        "rsd": 38.0790794873837,
+                        "stddev": 98,
+                        "min": 222,
+                        "p10": 224,
+                        "p90": 423,
+                        "p99": 645,
+                        "max": 645
+                    },
+                    "serverResponseTime": {
+                        "median": 118,
+                        "mean": 120,
+                        "mdev": 1.6702,
+                        "rsd": 6.22958330221937,
+                        "stddev": 7,
+                        "min": 113,
+                        "p10": 116,
+                        "p90": 138,
+                        "p99": 144,
+                        "max": 144
+                    },
+                    "backEndTime": {
+                        "median": 348,
+                        "mean": 401,
+                        "mdev": 42.5024,
+                        "rsd": 47.37109797872517,
+                        "stddev": 190,
+                        "min": 342,
+                        "p10": 342,
+                        "p90": 545,
+                        "p99": 1208,
+                        "max": 1208
+                    }
+                },
+                "paintTiming": {
+                    "first-contentful-paint": {
+                        "median": 490,
+                        "mean": 545,
+                        "mdev": 43.2153,
+                        "rsd": 35.432158468517784,
+                        "stddev": 193,
+                        "min": 476,
+                        "p10": 481,
+                        "p90": 686,
+                        "p99": 1366,
+                        "max": 1366
+                    }
+                },
+                "ttfb": {
+                    "median": 348,
+                    "mean": 401,
+                    "mdev": 42.5024,
+                    "rsd": 47.37109797872517,
+                    "stddev": 190,
+                    "min": 342,
+                    "p10": 342,
+                    "p90": 545,
+                    "p99": 1208,
+                    "max": 1208
+                }
+            },
+            "deltaToTFFB": {
+                "firstContentfulPaint": {
+                    "median": 141,
+                    "mean": 144,
+                    "mdev": 2.2412,
+                    "rsd": 6.950744528890889,
+                    "stddev": 10,
+                    "min": 129,
+                    "p10": 135,
+                    "p90": 158,
+                    "p99": 177,
+                    "max": 177
+                }
+            }
+        }
+    }
+]
