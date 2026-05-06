@@ -6,7 +6,7 @@
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "dev": "NODE_ENV=development webpack --config webpack.config.js"
   },
-  "author": "Dzung Pham",
+  "author": "ProxyGPT",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.24.5",
