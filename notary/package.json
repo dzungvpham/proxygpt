@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Dzung Pham",
+  "author": "ProxyGPT",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
