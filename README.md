@@ -49,7 +49,8 @@ Unlike existing similar services, we use Tor by default. Multi-query conversatio
 **WildChat analysis**
 - Set up a new virtual environment and activate it (we used Python 3.12)
 - Install Stylometrix (follow these steps precisely to avoid issues):
-  - Install spacy (CUDA is highly recommended), e.g.,: `pip install -U 'spacy[cuda12x]'` (make sure to choose the right CUDA version. If you need version 13 instead of 12, omit the `[cuda12x]` option, run `pip install cupy-cuda13x[ctk]` afterwards). Then run `python -m spacy download en_core_web_trf` for the large English model.
+  - Install spacy with GPU support: https://spacy.io/usage. E.g.: `pip install -U 'spacy[cuda12x]'` for CUDA (make sure to choose the right CUDA version. If you need version 13 instead of 12, omit the `[cuda12x]` option, run `pip install cupy-cuda13x[ctk]` afterwards).
+  - After spacy is installed, run `python -m spacy download en_core_web_trf` to download the large English model.
   - Clone the StyloMetrix repo at https://github.com/NASK-NLP/StyloMetrix (do not run `pip install stylometrix` because its spacy requirement is broken).
   - Modify the repo's requirements.txt file by removing the version pin for spacy (e.g., remove the ==3.7.2)
   - Modify the repo's setup.cfg file by replacing {{VERSION_PLACEHOLDER}} with 1.0.0
